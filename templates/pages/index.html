@@ -1,0 +1,91 @@
+{% extends 'includes/_BaseMedicarePlus.html' %}
+{% load static %}
+{% block title %}Acceuil {% endblock title %}
+{% block content %}
+<section class="site-content-area">
+    <!--BANNER-->
+    <div class="uni-banner">
+      <div class="uni-owl-one-item owl-carousel owl-theme">
+        <div class="item">
+          <div class="uni-banner-img uni-background-5"></div>
+          <div
+            class="content animated"
+            data-animation="flipInX"
+            data-delay="0.9s"
+          >
+            <div class="container">
+              <div class="caption">
+                <h1>Let us protect your health</h1>
+                <p>
+                  Vestibulum tortor quam, feugiat vitae, ultricies eget,
+                  tempor sit amet, ante.
+                  <br />
+                  Donec eu libero sit amet quam egestas semper.
+                </p>
+                <a href="#">our services</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="uni-banner-img uni-background-6"></div>
+          <div
+            class="content animated"
+            data-animation="flipInX"
+            data-delay="0.9s"
+          >
+            <div class="container">
+              <div class="caption">
+                <h1>Let us protect your health</h1>
+                <p>
+                  Vestibulum tortor quam, feugiat vitae, ultricies eget,
+                  tempor sit amet, ante.
+                  <br />
+                  Donec eu libero sit amet quam egestas semper.
+                </p>
+                <a href="#">our services</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="uni-banner-img uni-background-7"></div>
+          <div
+            class="content animated"
+            data-animation="flipInX"
+            data-delay="0.9s"
+          >
+            <div class="container">
+              <div class="caption">
+                <h1>Let us protect your health</h1>
+                <p>
+                  Vestibulum tortor quam, feugiat vitae, ultricies eget,
+                  tempor sit amet, ante.
+                  <br />
+                  Donec eu libero sit amet quam egestas semper.
+                </p>
+                <a href="#">our services</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% include 'includes/_opening.html' %} 
+    {% include 'includes/_departements.html' %} 
+    {% include 'includes/_doctors.html'%} 
+    {% include 'includes/_services.html' %} 
+    {% include 'includes/_customers.html' %} {% comment %}
+    <!--FAQ'S  and LASTEST POST-->
+    {% endcomment %}
+    <div class="uni-home-faq-latest-post">
+      <div class="container">
+        <div class="row">
+          {% include 'includes/_faq.html' %} 
+          {% include 'includes/_latest_posts.html' %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock content %}

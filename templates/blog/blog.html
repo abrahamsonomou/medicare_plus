@@ -1,0 +1,226 @@
+{% extends 'includes/_BaseMedicarePlus.html' %}
+{% load static %}
+{% block title %}Blog {% endblock title %}
+{% block content %}
+
+<section class="site-content-area">
+
+    <div class="uni-banner-default uni-background-1">
+        <div class="container">
+            <!-- Page title -->
+            <div class="page-title">
+                <div class="page-title-inner">
+                    <h1>blog </h1>
+                </div>
+            </div>
+            <!-- End page title -->
+
+            <!-- Breadcrumbs -->
+            <ul class="breadcrumbs">
+                <li><a href="{% url 'index' %}">home</a></li>
+                <li><a href="{% url 'blog' %}">blog</a></li>
+            </ul>
+            <!-- End breadcrumbs -->
+        </div>
+    </div>
+    {% if articles %}
+
+    <div class="uni-blog-grid-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="uni-blog-grid-left">
+
+                        <div class="grid row">
+                            {% for article in articles %}
+
+                            <div class="grid-item col-md-6">
+                                {% comment %} <!--===========================================--> {% endcomment %}
+                                <div class="blog-grid-item">
+                                    <article class="post type-post">
+                                        <div class="content-inner">
+                                            <div class="uni-entry-top">
+                                                <div class="thumbnail-img">
+                                                    {% if article.image  %}
+                                                    <a href="{% url 'detail_article' article.pk %}" title="">
+                                                        <img src="{{article.image.url}}" alt="{{article.titre|truncatechars:30}}" title="{{article.titre|truncatechars:30}}" class="img-responsive">
+                                                    </a>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+
+
+                                            <div class="uni-entry-body">
+                                                <div class="uni-entry-content">
+
+                                                    <header class="uni-entry-header">
+                                                        <h2 class="uni-entry-title">
+                                                            <a href="{% url 'detail_article' article.pk %}" rel="">{{article.titre|truncatechars:40}}</a>
+                                                        </h2>
+                                                    </header>
+
+                                                    <div class="uni-entry-meta">
+                                            <span class="uni-author">
+                                                <a href="{% url 'detail_article' article.pk %}" rel="author"><i class="fa fa-calendar" aria-hidden="true"></i> {{article.update}}</a>
+                                            </span>
+                                                        <span class="uni-comment-total">
+                                                <a href="{% url 'detail_article' article.pk %}" class="comments-link"><i class="fa fa-user" aria-hidden="true"></i> {{article.auteur}}</a>
+                                            </span>
+                                                        <span class="uni-entry-folder"><a href="{% url 'detail_article' article.pk %}"><i class="fa fa-comment" aria-hidden="true"></i> 2 comments</a></span>
+                                                    </div>
+                                                    <div class="uni-entry-summary">
+                                                        <p>{{article.resume|truncatechars:130}}
+                                                            <span class="readmore"><a href="{% url 'detail_article' article.pk %}">[ Read More ]</a></span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        
+
+                        </div>
+
+
+                        <!--Pagination blog-->
+                        <div class="uni-divider"></div>
+                     {% include "includes/_pagination.html" with page=articles %}
+                        
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="uni-blog-list-right">
+                        <aside id="secondary" class="widget-area">
+                            <aside class="widget">
+                                <div class="widget-content">
+                                    <div class="uni-search-sidebar">
+                                        <form action="http://medicare.vikitheme.com/html/action.php" method="post" accept-charset="utf-8">
+                                            <div class="vk-newlist-banner-test-search">
+                                                <input type="text" name="seach" placeholder="Search...">
+                                                <button type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </aside>
+                            <aside class="widget">
+                                <h3 class="widget-title">category</h3>
+                                <div class="uni-divider"></div>
+                                <div class="widget-content">
+                                    <div class="uni-widget-category">
+
+                                        <ul>
+                                            
+                                            <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Lifestyle</a></li>
+                                            <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Travel</a></li>
+                                            <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Technology</a></li>
+                                            <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Sport</a></li>
+                                            <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Economy</a></li>
+                                            <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>  Music</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </aside>
+                            <aside class="widget">
+                                <h3 class="widget-title">Recent posts</h3>
+                                <div class="uni-divider"></div>
+                                <div class="widget-content">
+                                    <div class="uni-widget-popular-posts">
+                                        <ul>
+                                            <li>
+                                                <div class="item-widget-popular-post">
+                                                    <div class="item-img">
+                                                        <a href="#"><img src="images/blog_list/img4.png" alt=""></a>
+                                                    </div>
+                                                    <div class="item-caption">
+                                                        <h4><a href="#">Microscope in medical</a></h4>
+                                                        <div class="time"><i class="fa fa-calendar" aria-hidden="true"></i>  June 12, 2017</div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-widget-popular-post">
+                                                    <div class="item-img">
+                                                        <a href="#"><img src="images/blog_list/img3.png" alt=""></a>
+                                                    </div>
+                                                    <div class="item-caption">
+                                                        <h4><a href="#">New surgical technology</a></h4>
+                                                        <div class="time"><i class="fa fa-calendar" aria-hidden="true"></i>  June 12, 2017</div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-widget-popular-post">
+                                                    <div class="item-img">
+                                                        <a href="#"><img src="images/blog_list/img2.png" alt=""></a>
+                                                    </div>
+                                                    <div class="item-caption">
+                                                        <h4><a href="#">Treatment for cancer patients</a></h4>
+                                                        <div class="time"><i class="fa fa-calendar" aria-hidden="true"></i>  June 12, 2017</div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="item-widget-popular-post">
+                                                    <div class="item-img">
+                                                        <a href="#"><img src="images/blog_list/img1.png" alt=""></a>
+                                                    </div>
+                                                    <div class="item-caption">
+                                                        <h4><a href="#">Benefits of regular checkups</a></h4>
+                                                        <div class="time"><i class="fa fa-calendar" aria-hidden="true"></i>  June 12, 2017</div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </aside>
+                            <aside class="widget">
+                                <h3 class="widget-title">Archives</h3>
+                                <div class="uni-divider"></div>
+                                <div class="widget-content">
+                                    <div class="uni-widget-archive">
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Octorber 2017</a></li>
+                                            <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> September 2017</a></li>
+                                            <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> August 2017</a></li>
+                                            <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> July 2017</a></li>
+                                            <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> June 2017</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </aside>
+                            <aside class="widget">
+                                <h3 class="widget-title">tags clound</h3>
+                                <div class="uni-divider"></div>
+                                <div class="widget-content">
+                                    <div class="uni-widget-tagsclound">
+                                        <ul>
+                                            <li><a href="#">Automatic</a></li>
+                                            <li><a href="#">Car Dealer</a></li>
+                                            <li><a href="#">Motos</a></li>
+                                            <li><a href="#">Vehicle</a></li>
+                                            <li><a href="#">Marketing</a></li>
+                                            <li><a href="#">Racing Car</a></li>
+                                            <li><a href="#">Construction</a></li>
+                                            <li><a href="#">Interior</a></li>
+                                            <li><a href="#">Exterior</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </aside>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endif %}
+
+</section>
+{% endblock content %}
